@@ -14,8 +14,7 @@ flow:
             - row_delimiter: '_|_'
             - column_delimiter: ;
         publish:
-          - all_data: "${return_result.replace(chr(32),'')}"
-          - output_0: '${ord(return_result[11])}'
+          - all_data: "${return_result.replace(chr(160),'')}"
         navigate:
           - SUCCESS: call_GetCourtFiles
           - FAILURE: on_failure
@@ -27,7 +26,7 @@ flow:
               - court_id: "${action_data.split(';')[0]}"
               - from_date: "${action_data.split(';')[1]}"
               - to_date: "${action_data.split(';')[2]}"
-              - send_to: "${action_data.split(';')[3]}"
+              - send_to: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_mailbox')}"
           break:
             - FAILURE
         navigate:
@@ -40,11 +39,11 @@ extensions:
   graph:
     steps:
       get_cell:
-        x: 145
-        'y': 113
+        x: 148
+        'y': 111
       call_GetCourtFiles:
-        x: 284
-        'y': 128
+        x: 301
+        'y': 115
         navigate:
           2d05818d-80c1-a499-7c0d-85f9af50d860:
             targetId: f487dde3-7893-6f10-0e63-6fa3916ac9fe
