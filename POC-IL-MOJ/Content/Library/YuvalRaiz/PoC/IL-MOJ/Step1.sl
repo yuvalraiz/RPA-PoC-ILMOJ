@@ -1,3 +1,8 @@
+########################################################################################################################
+#!!
+#! @description: Read the excel and based on it go the the website and send the relevant document to the poc mailbox 
+#!!#
+########################################################################################################################
 namespace: YuvalRaiz.PoC.IL-MOJ
 flow:
   name: Step1
