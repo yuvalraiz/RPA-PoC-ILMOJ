@@ -19,3 +19,6 @@ properties:
       value: ''
       sensitive: true
   - db_database_name: demo-db
+  - poc_upload_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdbLBks-nCMDq-1kIC9IcK07eHiy45KGm746hpxLFZe4RIcDg/viewform?usp=sf_link'
+  - poc_upload_username: mfdemos.user@gmail.com
+  - poc_upload_password: ''
