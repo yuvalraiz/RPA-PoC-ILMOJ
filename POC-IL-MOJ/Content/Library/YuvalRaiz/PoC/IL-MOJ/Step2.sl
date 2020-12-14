@@ -37,7 +37,21 @@ flow:
             - FAILURE
         navigate:
           - FAILURE: on_failure
+          - SUCCESS: move_email_between_folders
+    - move_email_between_folders:
+        do:
+          YuvalRaiz.yrUtil.imap.move_email_between_folders:
+            - mail_server: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_mailserver')}"
+            - username: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_mailbox')}"
+            - password:
+                value: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_mailbox_password')}"
+                sensitive: true
+            - from_folder: '${mailbox_folder}'
+            - to_folder: Done
+            - msg_id: '${msg_ids}'
+        navigate:
           - SUCCESS: SUCCESS
+          - FAILURE: on_failure
   results:
     - FAILURE
     - SUCCESS
@@ -45,17 +59,20 @@ extensions:
   graph:
     steps:
       get_all_messgaeIDs:
-        x: 64
+        x: 63
         'y': 90
       handle_income_mail:
-        x: 250
-        'y': 103
+        x: 222
+        'y': 92
+      move_email_between_folders:
+        x: 378
+        'y': 97
         navigate:
-          0c9f9776-70ee-4732-5de4-5a3da9b6e782:
+          589eade1-f64e-23c6-0a80-e3a59c806ce8:
             targetId: 27e16dda-2c54-81c4-747e-135b504beea8
             port: SUCCESS
     results:
       SUCCESS:
         27e16dda-2c54-81c4-747e-135b504beea8:
-          x: 440
-          'y': 112
+          x: 559
+          'y': 94

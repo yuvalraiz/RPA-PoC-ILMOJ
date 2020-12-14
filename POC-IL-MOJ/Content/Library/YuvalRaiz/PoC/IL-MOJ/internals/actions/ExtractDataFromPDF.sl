@@ -235,7 +235,7 @@ operation:
       - step:
           id: '46'
           action: Script
-          object_path: print txt
+          object_path: "'print txt"
       - step:
           id: '47'
           action: Script
