@@ -12,6 +12,11 @@ flow:
             - YYYY: '1999'
             - name1: ישראל
             - id1: '11111'
+            - upload_password:
+                value: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_upload_url')}"
+                sensitive: true
+                prompt:
+                  type: text
         navigate:
           - SUCCESS: SUCCESS
           - WARNING: CUSTOM

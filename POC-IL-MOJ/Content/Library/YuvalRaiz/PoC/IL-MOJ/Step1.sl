@@ -1,20 +1,28 @@
 ########################################################################################################################
 #!!
-#! @description: Read the excel and based on it go the the website and send the relevant document to the poc mailbox 
+#! @description: Read the excel and based on it go the the website and send the relevant document to the poc mailbox
 #!!#
 ########################################################################################################################
 namespace: YuvalRaiz.PoC.IL-MOJ
 flow:
   name: Step1
   inputs:
-    - input_excel: "${'''%s%s/%s''' % ( get_sp('YuvalRaiz.PoC.IL-MOJ.poc_folder_linux_mount'), get_sp('YuvalRaiz.PoC.IL-MOJ.poc_root_folder'),get_sp('YuvalRaiz.PoC.IL-MOJ.income_excel_name'))}"
-    - sheet_name: "${get_sp('YuvalRaiz.PoC.IL-MOJ.income_excel_sheet')}"
+    - input_excel:
+        required: false
+    - _input_excel:
+        default: "${get('input_excel','''%s%s/%s''' % ( get_sp('YuvalRaiz.PoC.IL-MOJ.poc_folder_linux_mount'), get_sp('YuvalRaiz.PoC.IL-MOJ.poc_root_folder'),get_sp('YuvalRaiz.PoC.IL-MOJ.income_excel_name')))}"
+        private: true
+    - sheet_name:
+        required: false
+    - _sheet_name:
+        default: "${get('sheet_name',get_sp('YuvalRaiz.PoC.IL-MOJ.income_excel_sheet'))}"
+        private: true
   workflow:
     - get_cell:
         do:
           io.cloudslang.base.excel.get_cell:
-            - excel_file_name: '${input_excel}'
-            - worksheet_name: '${sheet_name}'
+            - excel_file_name: '${_input_excel}'
+            - worksheet_name: '${_sheet_name}'
             - has_header: 'yes'
             - row_delimiter: '_|_'
             - column_delimiter: ;

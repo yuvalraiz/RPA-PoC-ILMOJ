@@ -42,9 +42,16 @@ flow:
                 value: "${get_sp('YuvalRaiz.PoC.IL-MOJ.poc_upload_password')}"
                 sensitive: true
         navigate:
-          - SUCCESS: SUCCESS
-          - WARNING: SUCCESS
+          - SUCCESS: updated_store_data
+          - WARNING: updated_store_data
           - FAILURE: on_failure
+    - updated_store_data:
+        do:
+          YuvalRaiz.PoC.IL-MOJ.internals.updated_store_data:
+            - line_id: '${line_id}'
+        navigate:
+          - FAILURE: on_failure
+          - SUCCESS: SUCCESS
   results:
     - FAILURE
     - SUCCESS
@@ -57,11 +64,11 @@ extensions:
       UpdatePoCWebSite:
         x: 205
         'y': 118
+      updated_store_data:
+        x: 378
+        'y': 114
         navigate:
-          fdf19aaa-31cf-08ba-ec8b-a72db9c0abab:
-            targetId: 0a5275e3-d084-1806-2f8b-c51f2cfd61cb
-            port: WARNING
-          384ff6b4-7e06-e2be-09e8-ece3f159e76d:
+          87557246-2f31-b6ce-7018-1c80f0550722:
             targetId: 0a5275e3-d084-1806-2f8b-c51f2cfd61cb
             port: SUCCESS
     results:

@@ -46,11 +46,11 @@ extensions:
   graph:
     steps:
       sql_query_all_rows:
-        x: 85
-        'y': 155
+        x: 60
+        'y': 104
       handle_upload_to_website:
-        x: 334
-        'y': 138
+        x: 258
+        'y': 104
         navigate:
           9d9df04e-e858-e16c-ad5d-db8a185c000e:
             targetId: 0ef05091-fa9b-50d9-0b26-01224ce2e2d8
@@ -58,5 +58,5 @@ extensions:
     results:
       SUCCESS:
         0ef05091-fa9b-50d9-0b26-01224ce2e2d8:
-          x: 508
-          'y': 87
+          x: 509
+          'y': 98
