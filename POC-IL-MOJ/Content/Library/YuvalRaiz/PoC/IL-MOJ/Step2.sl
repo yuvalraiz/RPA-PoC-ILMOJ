@@ -62,8 +62,8 @@ extensions:
         x: 63
         'y': 90
       handle_income_mail:
-        x: 222
-        'y': 92
+        x: 223
+        'y': 91
       move_email_between_folders:
         x: 378
         'y': 97
